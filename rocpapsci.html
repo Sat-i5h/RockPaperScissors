@@ -1,19 +1,39 @@
 <!DOCTYPE html>
+
 <head></head>
+
 <body>
-<script>
-    let compSel=compPlay();
-    
-    function compPlay(){
-        const compSel= ["rock", "paper", "scissors"];
-       
-        return (compSel[Math.floor(Math.random()*compSel.length)]);
+    <script>
         
-    }
-    console.log(compSel);
-   
-   
-   
-</script>
+        let playerScore = 0;
+        let compScore = 0;
+        function compPlay() {
+            const arr = ["rock", "paper", "scissors"]
+            return (arr[Math.floor(Math.random() * arr.length)]);
+        }
+
+        while (compScore < 5 && playerScore <5) {
+            let playerSelection = prompt("Enter your choice: ").toLowerCase();
+            compPlay();
+            let compSelection = compPlay();
+            if (playerSelection == compSelection) {
+                console.log("It's a tie!");
+                console.log("playerSelection:"+playerSelection, "compSelection:"+compSelection);
+                console.log("playerScore:" + playerScore, "compScore:"+compScore);
+            } else if ((playerSelection == "rock" && compSelection == "scissors") || (playerSelection == "paper" && compSelection == "rock") || (playerSelection == "scissors" && compSelection == "paper")) {
+                console.log("Yay! you won the round!");
+                playerScore++;
+                console.log("playerSelection:"+playerSelection, "compSelection:"+compSelection);
+                console.log("playerScore:" + playerScore, "compScore:"+compScore);
+            } else {
+                console.log("You lost the round. Better luck next time.");
+                compScore++;
+                console.log("playerSelection:"+playerSelection, "compSelection:"+compSelection);
+                console.log("playerScore:" + playerScore, "compScore:"+compScore);
+            }
+        }
+        console.log( "Game Ended");
+
+    </script>
 
 </body>
