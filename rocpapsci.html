@@ -4,7 +4,7 @@
 
 <body>
     <script>
-        
+
         let playerScore = 0;
         let compScore = 0;
         function compPlay() {
@@ -12,27 +12,33 @@
             return (arr[Math.floor(Math.random() * arr.length)]);
         }
 
-        while (compScore < 5 && playerScore <5) {
+        while (compScore < 5 && playerScore < 5) {
             let playerSelection = prompt("Enter your choice: ").toLowerCase();
             compPlay();
             let compSelection = compPlay();
             if (playerSelection == compSelection) {
                 console.log("It's a tie!");
-                console.log("playerSelection:"+playerSelection, "compSelection:"+compSelection);
-                console.log("playerScore:" + playerScore, "compScore:"+compScore);
+                console.log("playerSelection:" + playerSelection, "compSelection:" + compSelection);
+                console.log("playerScore:" + playerScore, "compScore:" + compScore);
             } else if ((playerSelection == "rock" && compSelection == "scissors") || (playerSelection == "paper" && compSelection == "rock") || (playerSelection == "scissors" && compSelection == "paper")) {
                 console.log("Yay! you won the round!");
                 playerScore++;
-                console.log("playerSelection:"+playerSelection, "compSelection:"+compSelection);
-                console.log("playerScore:" + playerScore, "compScore:"+compScore);
+                console.log("playerSelection:" + playerSelection, "compSelection:" + compSelection);
+                console.log("playerScore:" + playerScore, "compScore:" + compScore);
             } else {
                 console.log("You lost the round. Better luck next time.");
                 compScore++;
-                console.log("playerSelection:"+playerSelection, "compSelection:"+compSelection);
-                console.log("playerScore:" + playerScore, "compScore:"+compScore);
+                console.log("playerSelection:" + playerSelection, "compSelection:" + compSelection);
+                console.log("playerScore:" + playerScore, "compScore:" + compScore);
+            }
+            if (playerScore == 5) {
+                console.log("Player has won the game!");
+            } else if(compScore==5) {
+                console.log("Computer has won the game.");
             }
         }
-        console.log( "Game Ended");
+
+        console.log("Game Ended");
 
     </script>
 
